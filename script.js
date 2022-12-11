@@ -101,7 +101,7 @@ function moveSnake() {
     }
   }
 
-  if(checkCollision() || snakeX[snakeX.length - 1] < 1 || snakeX[snakeX.length - 1] > gridWidth || snakeY[snakeY.length - 1] < 1 || snakeY[snakeY.length - 1] > gridHeight) {
+  if(checkCollision() || snakeX.lengths + 1 >= gridHeight * gridWidth || snakeX[snakeX.length - 1] < 1 || snakeX[snakeX.length - 1] > gridWidth || snakeY[snakeY.length - 1] < 1 || snakeY[snakeY.length - 1] > gridHeight) {
     death()
   }
   else {
@@ -194,6 +194,7 @@ function death() {
 function setup() {
   gridWidth < 9 || gridWidth.toString() == "NaN" ? gridWidth = 9 : "";
   gridHeight < 1 || gridHeight.toString() == "NaN" ? gridHeight = 1 : "";
+  speed < 1 || speed.toString() == "NaN" ? speed = 125 : "";
   document.getElementById("height").value = gridHeight;
   document.getElementById("width").value = gridWidth;
   document.getElementById("speed").value = speed;
