@@ -1,0 +1,62 @@
+.box, .icon {
+    height: 2em;
+    width: 2em;
+    background-color: black;
+    text-align: center;
+    font-family: Oswald;
+    vertical-align: middle;
+    display: table-cell;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    font-size: 25px;
+}
+
+.row {
+    display: flex;
+}
+
+body {
+    background-color: black;
+}
+
+#title {
+    color: white;
+    font-family: Oswald;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#items {
+    position: absolute;
+    font-family: Oswald;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 0px 5px #4c7a2b;
+}
+
+body {
+    background-color: #588c34;
+}
+
+.text-input {
+    display: flex;
+    color: white;
+    margin-bottom: -30px;
+}
+
+input {
+    margin-left: 10px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Oswald;
+}
+
+#inputs {
+    margin-left: 10px;
+}
+
+h3 {
+    font-family: Oswald;
+}
