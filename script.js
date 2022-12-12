@@ -12,7 +12,7 @@ let prevMove = moveType;
 let playing = false;
 let snakeIndex;
 let text = "KOLESE KANISIUS";
-let speed = 125;
+let speed = 8;
 let user = "";
 let lbOrder;
 let leaderboard = window.localStorage.getItem("lb") == undefined ? {} : JSON.parse(window.localStorage.getItem("lb"));
@@ -112,7 +112,7 @@ function moveSnake() {
   }
 
   if(move) {
-    setTimeout(moveSnake, speed);
+    setTimeout(moveSnake, 1000 / speed);
   }
 }
 
