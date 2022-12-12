@@ -38,6 +38,7 @@ body {
 
 body {
     background-color: #588c34;
+    overflow-x: hidden;
 }
 
 .text-input {
@@ -100,4 +101,13 @@ h3 {
 #current-user {
     margin-top: 25px;
     margin-bottom: 5px;
+}
+
+#score {
+    width: 100%;
+    text-align: center;
+    font-family: Oswald;
+    color: white;
+    position: absolute;
+    top: 3%;
 }

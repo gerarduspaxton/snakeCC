@@ -165,6 +165,7 @@ function updateTiles() {
       documentItem.style.backgroundColor = tiles[x];
     }
   }
+  document.getElementById("score").innerHTML = snakeX.length - 3;
 }
 
 function snakeBorderRadiusMiddle() {
@@ -200,6 +201,7 @@ function setup() {
   gridHeight < 1 || gridHeight.toString() == "NaN" ? gridHeight = 1 : "";
   speed < 1 || speed.toString() == "NaN" ? speed = 125 : "";
   document.getElementById("height").value = gridHeight;
+  document.getElementById("text").value = text;
   document.getElementById("width").value = gridWidth;
   document.getElementById("speed").value = speed;
   document.getElementById("items").innerHTML = "";
@@ -227,6 +229,7 @@ function changeVar() {
   gridHeight = +(document.getElementById("height").value);
   gridWidth = +(document.getElementById("width").value);
   speed = +(document.getElementById("speed").value);
+  text = document.getElementById("text").value;
   user = document.getElementById("user").value;
   setup();
 }
