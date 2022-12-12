@@ -13,6 +13,9 @@ let playing = false;
 let snakeIndex;
 let text = "KOLESE KANISIUS";
 let speed = 125;
+let user = "";
+let lbOrder;
+let leaderboard = window.localStorage.getItem("lb") == undefined ? {} : JSON.parse(window.localStorage.getItem("lb"));
 
 function clearBoard() {
   tiles = [];
@@ -181,6 +184,7 @@ function snakeBorderRadiusStart() {
 }
 
 function death() {
+  updateLeaderboard()
   snakeX = [Math.ceil(gridWidth/2) - 4, Math.ceil(gridWidth/2) - 3, Math.ceil(gridWidth/2) - 2];
   snakeY = [Math.ceil(gridHeight/2), Math.ceil(gridHeight/2), Math.ceil(gridHeight/2)];
   apple = [Math.ceil(gridWidth/2), Math.ceil(gridHeight/2)];
@@ -216,13 +220,40 @@ function setup() {
   document.getElementById("items").style.marginTop = -gridHeight + "em";
   death();
   printSnake();
+  orderLeaderboard();
 }
 
 function changeVar() {
   gridHeight = +(document.getElementById("height").value);
   gridWidth = +(document.getElementById("width").value);
   speed = +(document.getElementById("speed").value);
+  user = document.getElementById("user").value;
   setup();
+}
+
+function updateLeaderboard() {
+  if(user == "") {
+    user = "Anonymous";
+  }
+  leaderboard[user.toUpperCase()] = snakeX.length - 3;
+  window.localStorage.setItem("lb", JSON.stringify(leaderboard));
+  orderLeaderboard();
+  for(d = 0; d < 5; d++) {
+    document.getElementById("place" + (d + 1)).innerHTML = d + 1 <= lbOrder.length ?  (d + 1) + ". " + lbOrder[d] + ", Score: " + leaderboard[lbOrder[d]] : "";
+  }
+}
+
+function orderLeaderboard() {
+  lbOrder = Object.keys(leaderboard);
+  for(a = 0; a < lbOrder.length + 1; a++) {
+    for(b = 0; b < lbOrder.length; b++) {
+    if(leaderboard[lbOrder[b + 1]] > leaderboard[lbOrder[b]]) {
+      let lbItem = lbOrder[b];
+      lbOrder[b] = lbOrder[b + 1];
+      lbOrder[b + 1] = lbItem;
+    }
+    }
+  }
 }
 
 setup();
