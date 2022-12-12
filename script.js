@@ -235,7 +235,7 @@ function updateLeaderboard() {
   if(user == "") {
     user = "Anonymous";
   }
-  gridHeight == 9 && gridWidth == 9 ? leaderboard[user.toUpperCase()] = snakeX.length - 3 : "";
+  gridHeight == 9 && gridWidth == 9 && snakeX.length - 3 > leaderboard[user.toUpperCase()] ? leaderboard[user.toUpperCase()] = snakeX.length - 3 : "";
   window.localStorage.setItem("lb", JSON.stringify(leaderboard));
   orderLeaderboard();
   for(d = 0; d < 5; d++) {
