@@ -244,6 +244,7 @@ function updateLeaderboard() {
   orderLeaderboard();
   for(d = 0; d < 5; d++) {
     document.getElementById("place" + (d + 1)).innerHTML = d + 1 <= lbOrder.length ?  (d + 1) + ". " + lbOrder[d] + ", Score: " + leaderboard[lbOrder[d]] : "";
+    document.getElementById("place" + (d + 1)).style.color = lbOrder[d] == user.toUpperCase() ? "yellow" : "white";
   }
   if(lbOrder.indexOf(user.toUpperCase()) > 4) {
     document.getElementById("placeExtra").innerHTML = "... <br>" + (lbOrder.indexOf(user.toUpperCase()) + 1) + ". " + user.toUpperCase() + ", Score: " + leaderboard[user.toUpperCase()];
